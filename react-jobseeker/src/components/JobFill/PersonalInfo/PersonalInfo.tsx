@@ -24,6 +24,19 @@ class PersonalInfo extends React.Component<PersonalInfoProps, PersonalInfoState>
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount() {
+    // Check if localStorage has values and update state
+    const firstName = localStorage.getItem("firstName");
+    const lastName = localStorage.getItem("lastName");
+
+    if (firstName !== null) {
+      this.setState({ firstName });
+    }
+    if (lastName !== null) {
+      this.setState({ lastName });
+    }
+  }
+
   handleChange(event: ChangeEvent<HTMLInputElement>) {
     const { name, value } = event.target;
     this.setState({ [name]: value } as Pick<PersonalInfoState, keyof PersonalInfoState>);
@@ -31,8 +44,13 @@ class PersonalInfo extends React.Component<PersonalInfoProps, PersonalInfoState>
 
   handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    const { firstName, lastName } = this.state;
+    // Save to local storage
+    localStorage.setItem("firstName", firstName);
+    localStorage.setItem("lastName", lastName);
     alert("Saved!");
   }
+
 
   render() {
     const { firstName, lastName } = this.state;
@@ -49,7 +67,7 @@ class PersonalInfo extends React.Component<PersonalInfoProps, PersonalInfoState>
                 name="firstName"
                 value={firstName}
                 onChange={this.handleChange}
-                placeholder="Nina"
+                placeholder="Your First Name"
               />
             </label>
             <label>
@@ -59,7 +77,7 @@ class PersonalInfo extends React.Component<PersonalInfoProps, PersonalInfoState>
                 name="lastName"
                 value={lastName}
                 onChange={this.handleChange}
-                placeholder="Green"
+                placeholder="Your Last Name"
               />
             </label>
           </div>
