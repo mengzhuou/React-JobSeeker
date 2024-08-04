@@ -1,34 +1,33 @@
-import './App.css'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Menu from "./components/Menu/Menu";
 
-function App() {
+import React from "react";
 
-  const onclick = async () => {
-    const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+interface AppProps {
+}
 
-    if (tab.url){
-      if (tab.url.startsWith('chrome://')) {
-        alert('Cannot execute script on a chrome:// URL');
-        return;
-      }
-  
-      chrome.scripting.executeScript({
-        target: { tabId: tab.id! },
-        func: () => {
-          alert('hello');
-        }
-      });
-    }
+interface AppState {
+}
+
+class App extends React.Component<AppProps, AppState> {
+  constructor(props: AppProps) {
+    super(props);
+    this.state = {};
   }
 
-  return (
-    <>
-      <div className="card">
-        <button onClick={() => onclick()}>
-          Click Me
-        </button>
-      </div>
-    </>
-  );
+  render() {
+    return (
+      <Router>
+        <div>
+          <Routes>
+            <Route path="/" element={<Menu />} />
+            {/* <Route path="/ClassicMode" element={<ClassicMode/>}/> */}
+          </Routes>
+          {/* <FooterNav /> */}
+        </div>
+      </Router>
+    );
+  }
 }
 
 export default App;

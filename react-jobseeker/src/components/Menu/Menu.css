@@ -1,0 +1,60 @@
+.buttonRow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    width: 100%;
+}
+
+
+.menuButton {
+    color: black;
+    text-decoration: none;
+    font-size: 30px;
+    background-color: #fff7cdba;
+    cursor: pointer;
+    font-family: 'Times New Roman', Times, serif;
+    border-radius: 25px;
+    padding: 2px 12px 2px 12px;
+    font-weight: bold;
+    display: block;
+    padding: 6px 16px;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    flex-direction: column;
+    align-items:flex-end;
+    margin-bottom: 40px;
+}
+
+.App{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    background-color:#d0f4d7;
+    font-family: 'Times New Roman', Times, serif; 
+    overflow:auto;
+    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
+}
+
+/* Hiding scrollbar for Chrome, Safari and Opera */
+.App::-webkit-scrollbar {
+    display: none;
+}
+
+.App-header{
+    color: #cedcc5;
+    background-color: #04a670;
+    z-index: 1;
+    text-align: center;
+    width: 450px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    border: 3px solid transparent;
+}
