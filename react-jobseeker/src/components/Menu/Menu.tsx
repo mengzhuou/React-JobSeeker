@@ -17,18 +17,18 @@ class Menu extends React.Component<MenuProps, MenuState> {
   }
 
   preFillNav = () => {
-    this.props.navigate("/PreFill");
+    this.props.navigate("/PersonalInfo");
   };
 
   render() {
     return (
       <div className="App">
         <div className="buttonContainer">
-          <div className="buttonRow">
-            <button className="menuButton" onClick={this.preFillNav}>
-              Prefill Your Info
-            </button>
-          </div>
+            <div className="buttonRow">
+                <button className="menuButton" onClick={this.preFillNav}>
+                Prefill Your Info
+                </button>
+            </div>
         </div>
       </div>
     );

@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Menu from "./components/Menu/Menu";
+import PersonalInfo from "./components/JobFill/PersonalInfo/PersonalInfo";
 
 import React from "react";
 
@@ -21,7 +22,7 @@ class App extends React.Component<AppProps, AppState> {
         <div>
           <Routes>
             <Route path="/" element={<Menu />} />
-            {/* <Route path="/ClassicMode" element={<ClassicMode/>}/> */}
+            <Route path="/PersonalInfo" element={<PersonalInfo/>}/>
           </Routes>
           {/* <FooterNav /> */}
         </div>
