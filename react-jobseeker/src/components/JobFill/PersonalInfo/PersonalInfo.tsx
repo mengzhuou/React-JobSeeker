@@ -1,6 +1,7 @@
 import React, { ChangeEvent, FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
 import { withFuncProps } from "../../withFuncProps";
+import FillAction from "../FillAction/FillAction";
 import "./PersonalInfo.css";
 
 interface PersonalInfoProps {
@@ -22,13 +23,14 @@ class PersonalInfo extends React.Component<PersonalInfoProps, PersonalInfoState>
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.fillFirstName = this.fillFirstName.bind(this);
+    this.fillLastName = this.fillLastName.bind(this);
   }
 
   componentDidMount() {
     // Check if localStorage has values and update state
     const firstName = localStorage.getItem("firstName");
     const lastName = localStorage.getItem("lastName");
-
     if (firstName !== null) {
       this.setState({ firstName });
     }
@@ -51,6 +53,21 @@ class PersonalInfo extends React.Component<PersonalInfoProps, PersonalInfoState>
     alert("Saved!");
   }
 
+  fillFirstName(firstName: string) {
+    this.setState({ firstName });
+    const firstNameInput = document.querySelector('input[name="firstName"]') as HTMLInputElement;
+    if (firstNameInput) {
+      firstNameInput.value = firstName;
+    }
+  }
+
+  fillLastName(lastName: string) {
+    this.setState({ lastName });
+    const lastNameInput = document.querySelector('input[name="lastName"]') as HTMLInputElement;
+    if (lastNameInput) {
+      lastNameInput.value = lastName;
+    }
+  }
 
   render() {
     const { firstName, lastName } = this.state;
@@ -67,7 +84,6 @@ class PersonalInfo extends React.Component<PersonalInfoProps, PersonalInfoState>
                 name="firstName"
                 value={firstName}
                 onChange={this.handleChange}
-                placeholder="Your First Name"
               />
             </label>
             <label>
@@ -77,7 +93,6 @@ class PersonalInfo extends React.Component<PersonalInfoProps, PersonalInfoState>
                 name="lastName"
                 value={lastName}
                 onChange={this.handleChange}
-                placeholder="Your Last Name"
               />
             </label>
           </div>
@@ -85,6 +100,10 @@ class PersonalInfo extends React.Component<PersonalInfoProps, PersonalInfoState>
             <button type="submit">Submit</button>
           </div>
         </form>
+        <FillAction 
+          fillFirstName={this.fillFirstName} 
+          fillLastName={this.fillLastName} 
+        />
       </div>
     );
   }

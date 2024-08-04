@@ -3,8 +3,10 @@
     "name": "SWE Job Filler",
     "description": "Extension that will auto fill SWE job application.",
     "version": "1.0",
-    "icons": {
-      "32": "job.png"
+    "icons":{
+        "16": "icon16.png",
+        "32": "icon32.png",
+        "48": "icon48.png"
     },
     "action": {
       "default_popup": "index.html"
