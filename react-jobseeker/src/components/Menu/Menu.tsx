@@ -24,15 +24,16 @@ class Menu extends React.Component<MenuProps, MenuState> {
     return (
       <div className="App">
         <div className="buttonContainer">
-            <div className="buttonRow">
-                <button className="menuButton" onClick={this.preFillNav}>
-                Prefill Your Info
-                </button>
-            </div>
+          <div className="buttonRow">
+            <button className="menuButton" onClick={this.preFillNav}>
+              Prefill Your Info
+            </button>
+          </div>
         </div>
       </div>
     );
   }
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export default withFuncProps(Menu);
